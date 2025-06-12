@@ -26,6 +26,9 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
   const ALLOWED_EXTENSIONS = ["mp4", "webm", "mkv", "mov", "avi"];
 
+  // Konfigurasi API URL
+  const API_URL = process.env.API_URL || "http://localhost:5000";
+
   const showToast = (message, isError = false) => {
     console.log("Showing toast:", message); // Log debug
     toastBody.textContent = message;
@@ -40,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const testBackendConnection = async () => {
     try {
       console.log("Testing backend connection..."); // Log debug
-      const response = await fetch("http://localhost:5000/api/test");
+      const response = await fetch(`${API_URL}/api/test`);
       const data = await response.json();
       if (data.status === "success") {
         showToast(`Koneksi Backend: ${data.message}`, false);
@@ -284,9 +287,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const interval = setInterval(async () => {
       try {
-        const response = await fetch(
-          `http://localhost:5000/api/progress/${task_id}`
-        );
+        const response = await fetch(`${API_URL}/api/progress/${task_id}`);
         const data = await response.json();
 
         if (data.status === "PROCESSING") {
@@ -313,7 +314,7 @@ document.addEventListener("DOMContentLoaded", () => {
           // Tampilkan tautan unduh
           if (data.download_name) {
             const downloadButton = document.createElement("a");
-            downloadButton.href = `http://localhost:5000/api/download/${task_id}`;
+            downloadButton.href = `${API_URL}/api/download/${task_id}`;
             downloadButton.download = decodeURIComponent(
               data.download_name.replace(/\+/g, " ")
             ); // Decode + to space
@@ -437,7 +438,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(
           `Mengirim permintaan untuk berkas ${file.name} ke backend...`
         );
-        const response = await fetch("http://localhost:5000/api/process", {
+        const response = await fetch(`${API_URL}/api/process`, {
           method: "POST",
           body: formData,
         });
