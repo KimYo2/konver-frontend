@@ -4,7 +4,7 @@
   "description": "Frontend for video converter application",
   "main": "index.html",
   "scripts": {
-    "start": "http-server templates -p $PORT"
+    "start": "http-server . -p $PORT"
   },
   "keywords": [],
   "author": "",
