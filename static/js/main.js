@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const ALLOWED_EXTENSIONS = ["mp4", "webm", "mkv", "mov", "avi"];
 
   // Konfigurasi API URL
-  const API_URL = process.env.API_URL || "http://localhost:5000";
+  const API_URL = "https://backend-konversi.up.railway.app"; // URL Backend di Railway
 
   const showToast = (message, isError = false) => {
     console.log("Showing toast:", message); // Log debug
