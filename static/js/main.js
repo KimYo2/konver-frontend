@@ -27,7 +27,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const ALLOWED_EXTENSIONS = ["mp4", "webm", "mkv", "mov", "avi"];
 
   // Konfigurasi API URL
-  const API_URL = "https://backend-konversi.up.railway.app"; // URL Backend di Railway
+  const API_URL_LOCAL = "http://localhost:5000/api";
+  const API_URL_PROD = "https://namadomainkamu.railway.app/api";
+
+  // Pilih URL sesuai environment
+  const API_URL =
+    window.location.hostname === "localhost" ? API_URL_LOCAL : API_URL_PROD;
 
   const showToast = (message, isError = false) => {
     console.log("Showing toast:", message); // Log debug
