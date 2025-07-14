@@ -443,7 +443,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(
           `Mengirim permintaan untuk berkas ${file.name} ke backend...`
         );
-        const response = await fetch(`${API_URL}/api/process`, {
+        const response = await fetch(`${API_URL}/process`, {
           method: "POST",
           body: formData,
         });
