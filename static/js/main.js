@@ -292,7 +292,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const interval = setInterval(async () => {
       try {
-        const response = await fetch(`${API_URL}/api/progress/${task_id}`);
+        const response = await fetch(`${API_URL}/progress/${task_id}`);
         const data = await response.json();
 
         if (data.status === "PROCESSING") {
