@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const testBackendConnection = async () => {
     try {
       console.log("Testing backend connection..."); // Log debug
-      const response = await fetch(`${API_URL}/api/test`);
+      const response = await fetch(`${API_URL}/test`);
       const data = await response.json();
       if (data.status === "success") {
         showToast(`Koneksi Backend: ${data.message}`, false);
