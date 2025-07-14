@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Konfigurasi API URL
   const API_URL_LOCAL = "http://localhost:5000/api";
-  const API_URL_PROD = "https://backend-konversi.up.railway.app/api";
+  // const API_URL_PROD = "https://backend-konversi.up.railway.app/api";
 
   // Pilih URL sesuai environment
   const API_URL =
