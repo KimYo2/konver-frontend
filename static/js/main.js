@@ -27,8 +27,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const ALLOWED_EXTENSIONS = ["mp4", "webm", "mkv", "mov", "avi"];
 
   // Konfigurasi API URL
-  const API_URL_LOCAL = "http://localhost:5000";
-  const API_URL_PROD = "https://backend-konversi.up.railway.app";
+  const API_URL_LOCAL = "http://localhost:5000/api";
+  const API_URL_PROD = "https://backend-konversi.up.railway.app/api";
 
   // Pilih URL sesuai environment
   const API_URL =
