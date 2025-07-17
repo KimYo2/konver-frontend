@@ -319,7 +319,7 @@ document.addEventListener("DOMContentLoaded", () => {
           // Tampilkan tautan unduh
           if (data.download_name) {
             const downloadButton = document.createElement("a");
-            downloadButton.href = `${API_URL}/api/download/${task_id}`;
+            downloadButton.href = `${API_URL}/download/${task_id}`;
             downloadButton.download = decodeURIComponent(
               data.download_name.replace(/\+/g, " ")
             ); // Decode + to space
