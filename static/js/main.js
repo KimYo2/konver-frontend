@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const testBackendConnection = async () => {
     try {
       console.log("Testing backend connection..."); // Log debug
-      const response = await fetch(`${API_URL}/test`);
+      const response = await fetch(`${API_URL}/api/test`);
       const data = await response.json();
       if (data.status === "success") {
         showToast(`Koneksi Backend: ${data.message}`, false);
@@ -319,7 +319,7 @@ document.addEventListener("DOMContentLoaded", () => {
           // Tampilkan tautan unduh
           if (data.download_name) {
             const downloadButton = document.createElement("a");
-            downloadButton.href = `${API_URL}/download/${task_id}`;
+            downloadButton.href = `${API_URL}/api/download/${task_id}`;
             downloadButton.download = decodeURIComponent(
               data.download_name.replace(/\+/g, " ")
             ); // Decode + to space
