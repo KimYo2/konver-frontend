@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const ALLOWED_EXTENSIONS = ["mp4", "webm", "mkv", "mov", "avi"];
 
   // Konfigurasi API URL
-  const API_URL_LOCAL = "http://localhost:5000/api";
+  const API_URL_LOCAL = "http://localhost:5000";
   // const API_URL_PROD = "https://backend-konversi.up.railway.app/api";
 
   // Pilih URL sesuai environment
@@ -292,7 +292,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const interval = setInterval(async () => {
       try {
-        const response = await fetch(`${API_URL}/progress/${task_id}`);
+        const response = await fetch(`${API_URL}/api/progress/${task_id}`);
         const data = await response.json();
 
         if (data.status === "PROCESSING") {
@@ -319,7 +319,7 @@ document.addEventListener("DOMContentLoaded", () => {
           // Tampilkan tautan unduh
           if (data.download_name) {
             const downloadButton = document.createElement("a");
-            downloadButton.href = `${API_URL}/download/${task_id}`;
+            downloadButton.href = `${API_URL}/api/download/${task_id}`;
             downloadButton.download = decodeURIComponent(
               data.download_name.replace(/\+/g, " ")
             ); // Decode + to space
@@ -443,7 +443,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(
           `Mengirim permintaan untuk berkas ${file.name} ke backend...`
         );
-        const response = await fetch(`${API_URL}/process`, {
+        const response = await fetch(`${API_URL}/api/process`, {
           method: "POST",
           body: formData,
         });
